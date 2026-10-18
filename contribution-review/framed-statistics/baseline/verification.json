@@ -1,0 +1,586 @@
+{
+  "schema_version": 1,
+  "title": "Framed LZ4/Snappy output-counter baseline reproduction",
+  "base_commit": "611cad06b66842692870c6ae98f50de7ce4f25d5",
+  "base_tree": "adac2329e8e707305cb56940e326d6c18f33f083",
+  "production_changes": [],
+  "regression_files": [
+    {
+      "path": "src/test/java/org/apache/commons/compress/compressors/FramedCompressorInputStreamStatisticsTest.java",
+      "bytes": 7952,
+      "sha256": "8e8b78764cda5943f34c212cbf3537ba7ab24714b1a8d175257455db38291ff9",
+      "git_blob_sha": "0f18d24916f8dc19f9937987478aadb5336d6f6c"
+    },
+    {
+      "path": "src/test/java/org/apache/commons/compress/compressors/lz4/FramedLZ4CompressorInputStreamTest.java",
+      "bytes": 27962,
+      "sha256": "217189989c7775f63f87d4a10bf20ea27427c12e746713efba6e37e136a05fdf",
+      "git_blob_sha": "b999779f03f0b76402171372a0b2a56d56bc979c"
+    },
+    {
+      "path": "src/test/java/org/apache/commons/compress/compressors/lz4/FramedLZ4CompressorRoundtripTest.java",
+      "bytes": 5634,
+      "sha256": "1162fddcbeacd80319baa33549f02e73045d1e9c92487cdf1f1cfa05e4b5f2a7",
+      "git_blob_sha": "05b6f973c48a35be712d1dbbe07c044817db427b"
+    },
+    {
+      "path": "src/test/java/org/apache/commons/compress/compressors/snappy/FramedSnappyCompressorInputStreamTest.java",
+      "bytes": 11365,
+      "sha256": "90644130ad17f0d8bed83f6c2d6fcc184345e5f530564a07909893ebd32344db",
+      "git_blob_sha": "7f5fb2b247c1686be325e34739149300508c9d93"
+    }
+  ],
+  "execution": {
+    "started_at": "2026-10-18T16:32:14.304972+00:00",
+    "finished_at": "2026-10-18T16:33:29.883451+00:00",
+    "exit_code": 1,
+    "goal": "test",
+    "test_selection": "FramedCompressorInputStreamStatisticsTest,FramedLZ4CompressorInputStreamTest,FramedLZ4CompressorRoundtripTest,FramedSnappyCompressorInputStreamTest",
+    "maven": "3.9.11",
+    "jdk": "Eclipse Temurin 17.0.20.1+1",
+    "os": "Linux amd64",
+    "tls_verification": true
+  },
+  "summary": {
+    "tests": 89,
+    "failures": 39,
+    "errors": 0,
+    "skipped": 0
+  },
+  "suites": [
+    {
+      "name": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+      "tests": 10,
+      "failures": 10,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "testCountWhileReading(String)[1]",
+          "outcome": "failure",
+          "message": "expected: <1> but was: <14>"
+        },
+        {
+          "name": "testCountWhileReading(String)[2]",
+          "outcome": "failure",
+          "message": "expected: <1> but was: <24>"
+        },
+        {
+          "name": "testCountAcrossFrames(String)[1]",
+          "outcome": "failure",
+          "message": "expected: <5000> but was: <298>"
+        },
+        {
+          "name": "testCountAcrossFrames(String)[2]",
+          "outcome": "failure",
+          "message": "expected: <5000> but was: <498>"
+        },
+        {
+          "name": "testCountAfterReadFailure(String)[1]",
+          "outcome": "failure",
+          "message": "expected: <5000> but was: <298>"
+        },
+        {
+          "name": "testCountAfterReadFailure(String)[2]",
+          "outcome": "failure",
+          "message": "expected: <5000> but was: <498>"
+        },
+        {
+          "name": "testEmptyStreamCount(String)[1]",
+          "outcome": "failure",
+          "message": "expected: <0> but was: <15>"
+        },
+        {
+          "name": "testEmptyStreamCount(String)[2]",
+          "outcome": "failure",
+          "message": "expected: <0> but was: <10>"
+        },
+        {
+          "name": "testCountAfterSkip(String)[1]",
+          "outcome": "failure",
+          "message": "expected: <5000> but was: <344>"
+        },
+        {
+          "name": "testCountAfterSkip(String)[2]",
+          "outcome": "failure",
+          "message": "expected: <5000> but was: <499>"
+        }
+      ]
+    },
+    {
+      "name": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+      "tests": 40,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "testRejectsBlocksWithoutChecksum",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsStreamsWithBadContentChecksum",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testBackreferenceWithOffsetTooBigCausesIOException",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsFileWithoutBlockSizeByte",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsFileWithoutHeaderChecksum",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadBlaLz4",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testSkipsOverSkippableFrames",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadBlaLz4ViaFactory",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadBlaLz4ViaFactoryWithDecompressConcatenated",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsSkippableFrameWithPrematureEndInLengthBytes",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsTrailingBytesAfterValidFrame",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadDoubledBlaLz4ViaFactoryWithDecompressConcatenatedTrue",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsFileWithInsufficientContentSize",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testBackreferenceAtStartCausesIOException",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsSkippableFrameFollowedByTooFewBytes",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadDoubledBlaLz4ViaFactoryWithDecompressConcatenatedFalse",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsFileWithWrongVersion",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testBackreferenceOfSize0CausesIOException",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadsUncompressedBlocks",
+          "outcome": "failure",
+          "message": "expected: <13> but was: <28>"
+        },
+        {
+          "name": "testRejectsSkippableFrameFollowedByJunk",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testMatches",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsNonLZ4Stream",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsFileWithBadHeaderChecksum",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testSingleByteReadConsistentlyReturnsMinusOneAtEof",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadBlaDumpLz4",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadsUncompressedBlocksUsingSingleByteRead",
+          "outcome": "failure",
+          "message": "expected: <1> but was: <12>"
+        },
+        {
+          "name": "testMultiByteReadConsistentlyReturnsMinusOneAtEof",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testSkipsOverTrailingSkippableFrames",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadDoubledBlaLz4WithDecompressConcatenatedFalse",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsSkippableFrameWithBadSignaturePrefix",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsFileWithoutFrameDescriptor",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadDoubledBlaLz4WithDecompressConcatenatedTrue",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testManyEmptyConcatenatedFramesDoNotOverflowStack",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsSkippableFrameWithPrematureEnd",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadDoubledBlaLz4WithoutExplicitDecompressConcatenated",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadBlaLz4ViaFactoryAutoDetection",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadDoubledBlaLz4ViaFactoryWithoutExplicitDecompressConcatenated",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadBlaLz4WithDecompressConcatenated",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsSkippableFrameWithBadSignatureTrailer",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testRejectsStreamsWithoutContentChecksum",
+          "outcome": "pass",
+          "message": null
+        }
+      ]
+    },
+    {
+      "name": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+      "tests": 25,
+      "failures": 25,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "test64KMultipleBlocks",
+          "outcome": "failure",
+          "message": "expected: <98304> but was: <98327>"
+        },
+        {
+          "name": "biggerFileRoundtrip(Parameters)[1]",
+          "outcome": "failure",
+          "message": "expected: <4069842> but was: <4068232>"
+        },
+        {
+          "name": "biggerFileRoundtrip(Parameters)[2]",
+          "outcome": "failure",
+          "message": "expected: <4069842> but was: <4068883>"
+        },
+        {
+          "name": "biggerFileRoundtrip(Parameters)[3]",
+          "outcome": "failure",
+          "message": "expected: <4069842> but was: <4069873>"
+        },
+        {
+          "name": "biggerFileRoundtrip(Parameters)[4]",
+          "outcome": "failure",
+          "message": "expected: <4069842> but was: <4069861>"
+        },
+        {
+          "name": "biggerFileRoundtrip(Parameters)[5]",
+          "outcome": "failure",
+          "message": "expected: <4069842> but was: <4069857>"
+        },
+        {
+          "name": "biggerFileRoundtrip(Parameters)[6]",
+          "outcome": "failure",
+          "message": "expected: <4069842> but was: <4069865>"
+        },
+        {
+          "name": "biggerFileRoundtrip(Parameters)[7]",
+          "outcome": "failure",
+          "message": "expected: <4069842> but was: <4068231>"
+        },
+        {
+          "name": "biggerFileRoundtrip(Parameters)[8]",
+          "outcome": "failure",
+          "message": "expected: <4069842> but was: <4069861>"
+        },
+        {
+          "name": "gzippedLoremIpsumRoundtrip(Parameters)[1]",
+          "outcome": "failure",
+          "message": "expected: <38080> but was: <38099>"
+        },
+        {
+          "name": "gzippedLoremIpsumRoundtrip(Parameters)[2]",
+          "outcome": "failure",
+          "message": "expected: <38080> but was: <38099>"
+        },
+        {
+          "name": "gzippedLoremIpsumRoundtrip(Parameters)[3]",
+          "outcome": "failure",
+          "message": "expected: <38080> but was: <38099>"
+        },
+        {
+          "name": "gzippedLoremIpsumRoundtrip(Parameters)[4]",
+          "outcome": "failure",
+          "message": "expected: <38080> but was: <38099>"
+        },
+        {
+          "name": "gzippedLoremIpsumRoundtrip(Parameters)[5]",
+          "outcome": "failure",
+          "message": "expected: <38080> but was: <38095>"
+        },
+        {
+          "name": "gzippedLoremIpsumRoundtrip(Parameters)[6]",
+          "outcome": "failure",
+          "message": "expected: <38080> but was: <38103>"
+        },
+        {
+          "name": "gzippedLoremIpsumRoundtrip(Parameters)[7]",
+          "outcome": "failure",
+          "message": "expected: <38080> but was: <38099>"
+        },
+        {
+          "name": "gzippedLoremIpsumRoundtrip(Parameters)[8]",
+          "outcome": "failure",
+          "message": "expected: <38080> but was: <38099>"
+        },
+        {
+          "name": "blaTarRoundtrip(Parameters)[1]",
+          "outcome": "failure",
+          "message": "expected: <10240> but was: <610>"
+        },
+        {
+          "name": "blaTarRoundtrip(Parameters)[2]",
+          "outcome": "failure",
+          "message": "expected: <10240> but was: <610>"
+        },
+        {
+          "name": "blaTarRoundtrip(Parameters)[3]",
+          "outcome": "failure",
+          "message": "expected: <10240> but was: <610>"
+        },
+        {
+          "name": "blaTarRoundtrip(Parameters)[4]",
+          "outcome": "failure",
+          "message": "expected: <10240> but was: <610>"
+        },
+        {
+          "name": "blaTarRoundtrip(Parameters)[5]",
+          "outcome": "failure",
+          "message": "expected: <10240> but was: <606>"
+        },
+        {
+          "name": "blaTarRoundtrip(Parameters)[6]",
+          "outcome": "failure",
+          "message": "expected: <10240> but was: <614>"
+        },
+        {
+          "name": "blaTarRoundtrip(Parameters)[7]",
+          "outcome": "failure",
+          "message": "expected: <10240> but was: <610>"
+        },
+        {
+          "name": "blaTarRoundtrip(Parameters)[8]",
+          "outcome": "failure",
+          "message": "expected: <10240> but was: <616>"
+        }
+      ]
+    },
+    {
+      "name": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+      "tests": 14,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "testRemainingChunkTypes",
+          "outcome": "failure",
+          "message": "expected: <38> but was: <112>"
+        },
+        {
+          "name": "testFinishWithNoWrite",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testUnskippableChunk",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testManyPaddingChunksDoNotOverflowStack",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testWriteDataLargerThanBufferOneCall",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadIWAFile",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testAvailable",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testLoremIpsum",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testMatches",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testSingleByteReadConsistentlyReturnsMinusOneAtEof",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testMultiByteReadConsistentlyReturnsMinusOneAtEof",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testChecksumUnmasking",
+          "outcome": "pass",
+          "message": null
+        },
+        {
+          "name": "testReadIWAFileWithBiggerOffset",
+          "outcome": "failure",
+          "message": "expected: <219521> but was: <36288>"
+        },
+        {
+          "name": "testWriteByteArrayVsWriteByte",
+          "outcome": "pass",
+          "message": null
+        }
+      ]
+    }
+  ],
+  "raw_report_identities": [
+    {
+      "file": "TEST-org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest.xml",
+      "sha256": "b7c6d38f2874eb126fa18a21de3883af49cf57486effbd4a75961559efd0434e",
+      "bytes": 60782,
+      "publication": "Per-case results are transcribed into this JSON; the Maven console is included separately. Raw XML properties are not published."
+    },
+    {
+      "file": "TEST-org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest.xml",
+      "sha256": "4a0f9791669849636d854aebaf605bc7466b8a40bb484a8546ad5f275c45a091",
+      "bytes": 29367,
+      "publication": "Per-case results are transcribed into this JSON; the Maven console is included separately. Raw XML properties are not published."
+    },
+    {
+      "file": "TEST-org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest.xml",
+      "sha256": "f80a96702e87a2f8fd201cb5f46c4b85ee55ab148a0d2cedfd962f8016a58164",
+      "bytes": 134334,
+      "publication": "Per-case results are transcribed into this JSON; the Maven console is included separately. Raw XML properties are not published."
+    },
+    {
+      "file": "TEST-org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest.xml",
+      "sha256": "b704f2f9f4ba61ceaaee3ee69714294dbb6e7f2fd222aafc2776ccfa662b330b",
+      "bytes": 24942,
+      "publication": "Per-case results are transcribed into this JSON; the Maven console is included separately. Raw XML properties are not published."
+    }
+  ],
+  "console": {
+    "file": "maven.log",
+    "sha256": "e958e79ea05ad26c55746b3e7f2ea59047b0bb0c885ba82a5ccd5a54d18c39dc",
+    "redactions": "Workspace prefix replaced with <workspace>; terminal color escapes removed."
+  },
+  "earlier_setup_attempts": [
+    {
+      "result": "Maven parent resolution failed before compilation because the runtime proxy was not configured.",
+      "tests_executed": 0
+    },
+    {
+      "result": "Maven parent resolution failed before compilation because the task-local JDK did not yet include the environment-provided CA.",
+      "tests_executed": 0
+    }
+  ],
+  "policy_and_scope": {
+    "report": "https://issues.apache.org/jira/browse/COMPRESS-726?focusedCommentId=18092163&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel",
+    "related_pr": "https://github.com/apache/commons-compress/pull/777",
+    "relationship": "The existing report describes the distinct framed counter defect; PR 777 expressly excludes its correction. No decompression-limit change is included.",
+    "generated_by": "ChatGPT (GPT-6 Astra Pro); independent automated source/fixture review, not a claim of personal human review."
+  },
+  "limits": [
+    "This is an expected-failing test-only checkpoint, not a production fix or upstream submission.",
+    "The full default Maven goal was not run on this test-only baseline.",
+    "No dedicated new Jira ticket or reciprocal Jira comment is claimed.",
+    "No maintainer acceptance, security award eligibility, payment, or activated benefit is established."
+  ]
+}

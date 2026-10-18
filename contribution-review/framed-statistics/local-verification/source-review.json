@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "review_type": "independent automated source review",
+  "decision": "accept; no required source changes",
+  "observed_started_at": "2026-10-18T16:38:57Z",
+  "observed_completed_at": "2026-10-18T16:40:26Z",
+  "repository": "https://github.com/apache/commons-compress",
+  "source_base_commit": "611cad06b66842692870c6ae98f50de7ce4f25d5",
+  "review_target": "The two local framed-reader source files identified below, compared with the observed local source base. Source files were not edited by this reviewer.",
+  "related_checkpoints": {
+    "test_only_commit": "191c9e8ce0fb7c478f64bd8912fc56d9747eca5d",
+    "prepared_final_tree": "9c0430eb9a40f5f493132589e6fef3b7ffcbe494",
+    "provenance": "Checkpoint publication verification and prepared tree were reported by the implementation agent; this review independently identifies the source and test blobs below."
+  },
+  "source_diff": {
+    "files_changed": 2,
+    "lines_added": 20,
+    "lines_deleted": 0,
+    "shape": "One private long counter, one public getUncompressedCount override, and one positive-result increment in each framed reader.",
+    "static_comparison": "For each source file, removing exactly those three insertions reproduces the base file byte for byte.",
+    "files": [
+      {
+        "path": "src/main/java/org/apache/commons/compress/compressors/lz4/FramedLZ4CompressorInputStream.java",
+        "bytes": 15717,
+        "sha256": "71398b35606cef7d35571fe98d53befc5db8e60cad9152c7087d3069d4445e85",
+        "git_blob_sha": "b09bc3c235ce1730cf8968fa6722905ad6f07e65",
+        "expected_insertion_occurrences": [
+          1,
+          1,
+          1
+        ],
+        "only_expected_insertions": true,
+        "new_counter_line_numbers": [
+          111,
+          181,
+          278
+        ],
+        "base_git_blob_sha": "e3f2424d245f7234d0ac8073c7b6f792ea14a08c"
+      },
+      {
+        "path": "src/main/java/org/apache/commons/compress/compressors/snappy/FramedSnappyCompressorInputStream.java",
+        "bytes": 13802,
+        "sha256": "dad950369e7e340aeb3b1727327027551d5af6f9651a1ba82ad654b1ae466a48",
+        "git_blob_sha": "38b8da4c2d477b084664f151a88c468f0466f55e",
+        "expected_insertion_occurrences": [
+          1,
+          1,
+          1
+        ],
+        "only_expected_insertions": true,
+        "new_counter_line_numbers": [
+          95,
+          199,
+          223
+        ],
+        "base_git_blob_sha": "26467216077a56c590de3442929b6a0d66ebf976"
+      }
+    ]
+  },
+  "regression_review": {
+    "shared_parameterized_methods": 5,
+    "format_invocations_per_shared_method": 2,
+    "shared_test_invocations": 10,
+    "method_count_correction": "An earlier narrative mistakenly said six shared methods; the actual source has five methods and ten invocations. No test change was required.",
+    "previously_reviewed_test_hashes_unchanged": true,
+    "files": [
+      {
+        "path": "src/test/java/org/apache/commons/compress/compressors/FramedCompressorInputStreamStatisticsTest.java",
+        "bytes": 7952,
+        "sha256": "8e8b78764cda5943f34c212cbf3537ba7ab24714b1a8d175257455db38291ff9",
+        "git_blob_sha": "0f18d24916f8dc19f9937987478aadb5336d6f6c",
+        "parameterized_method_count": 5,
+        "format_count_per_method": 2
+      },
+      {
+        "path": "src/test/java/org/apache/commons/compress/compressors/lz4/FramedLZ4CompressorInputStreamTest.java",
+        "bytes": 27962,
+        "sha256": "217189989c7775f63f87d4a10bf20ea27427c12e746713efba6e37e136a05fdf",
+        "git_blob_sha": "b999779f03f0b76402171372a0b2a56d56bc979c"
+      },
+      {
+        "path": "src/test/java/org/apache/commons/compress/compressors/lz4/FramedLZ4CompressorRoundtripTest.java",
+        "bytes": 5634,
+        "sha256": "1162fddcbeacd80319baa33549f02e73045d1e9c92487cdf1f1cfa05e4b5f2a7",
+        "git_blob_sha": "05b6f973c48a35be712d1dbbe07c044817db427b"
+      },
+      {
+        "path": "src/test/java/org/apache/commons/compress/compressors/snappy/FramedSnappyCompressorInputStreamTest.java",
+        "bytes": 11365,
+        "sha256": "90644130ad17f0d8bed83f6c2d6fcc184345e5f530564a07909893ebd32344db",
+        "git_blob_sha": "7f5fb2b247c1686be325e34739149300508c9d93"
+      }
+    ],
+    "fixture_findings": [
+      "Complete valid first payload followed by one zero byte causes a subsequent framing-read failure: an incomplete four-byte LZ4 signature or a Snappy compressed-chunk tag without its three-byte length.",
+      "The between-frame LZ4 skippable frame and Snappy type-0x80 chunk encode two metadata bytes. Neither contributes decompressed output.",
+      "The existing mixed.txt.sz fixture contains raw and compressed Snappy chunks, a repeated identifier, padding, and skippable chunks. The IWORK fixture retains its independent expected-output comparison.",
+      "Legacy counter equality assertions use a fully consumed single-identifier stream, avoiding repeated-identifier compressed-count assumptions."
+    ]
+  },
+  "correctness_findings": [
+    "Each getter now reports output returned by successful reads instead of inherited compressed/header-byte accounting; constructor read-ahead leaves the new field zero.",
+    "Both increments occur once at the end of the top-level bulk read, only for a positive result and after existing checksum/dependency processing. Single-byte read already delegates to that method and is not counted twice.",
+    "Zero-length reads, EOF, and reads that throw before returning add nothing. Output returned before a later framing/checksum failure remains counted.",
+    "The field persists across chunks, metadata, and enabled frame concatenation. Public inherited read-based skip counts consumed decompressed bytes; internal raw metadata skips do not touch the field.",
+    "All historical count, pushedBackBytes, getBytesRead, getCount, getCompressedCount, decoder, checksum, and framing operations remain byte-for-byte unchanged."
+  ],
+  "remaining_risks_and_limits": [
+    "No blocking source issue found. Existing repeated-identifier compressed-count behavior and malformed-stream recovery behavior are outside this change.",
+    "This reviewer performed static source and fixture inspection only. The required default Maven build remained pending when this receipt was written."
+  ],
+  "execution_evidence_reported_by_implementation_agent": {
+    "independently_reexecuted_by_reviewer": false,
+    "baseline": {
+      "production": "unchanged base",
+      "tests": 89,
+      "failures": 39,
+      "errors": 0,
+      "skipped": 0,
+      "all_ten_shared_invocations_failed_counter_assertions": true,
+      "other_selected_tests_passed": 50,
+      "empty_stream_count_before_output": {
+        "lz4": 15,
+        "snappy": 10
+      }
+    },
+    "focused_final": {
+      "started_at": "2026-10-18T16:38:30Z",
+      "completed_at": "2026-10-18T16:38:55Z",
+      "tests": 89,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "reviewer_actions": {
+    "tests_or_builds_executed": false,
+    "source_or_test_files_edited": false,
+    "external_writes_performed": false,
+    "human_review_or_approval_claimed": false,
+    "only_written_artifact": "compress-source-review.json"
+  }
+}

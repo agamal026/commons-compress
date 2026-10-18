@@ -1,0 +1,38 @@
+{
+  "observed_at": "2026-10-18T16:58:05.436Z",
+  "repository": "agamal026/commons-compress",
+  "default_branch": "master",
+  "sha": "f0b58f3e008b6f4c3f9a3bf1f7f3f43d44ee908a",
+  "tree": "d4164da17dfbf2c6b230b039f1e2d332d64dbeec",
+  "parent": "611cad06b66842692870c6ae98f50de7ce4f25d5",
+  "files": [
+    {
+      "path": ".github/workflows/codeql-analysis.yml",
+      "sha": "a86acf13647820770686c92eeeaa4d20a4b8962f",
+      "sha256": "f122594c5b1cd4865ef03b130c51224c6a076c946ed14338bd3948f2730039e5"
+    },
+    {
+      "path": ".github/workflows/scorecards-analysis.yml",
+      "sha": "4eff602baf7703609ef7fb5c024bd26c8665b935",
+      "sha256": "23f0cfa5cf3afba4212d72dad131d7d408b36e95f9c62742cceb204f23ac7aea"
+    }
+  ],
+  "source_branch_unchanged": "7e6477880259d60d4dfa60a5e34e4ea7875176b1",
+  "maven_workflow_byte_identical": true,
+  "owned_pull_request": "https://github.com/agamal026/commons-compress/pull/1",
+  "owned_pull_request_created_at": "2026-10-18T16:58:41Z",
+  "actions_enabled_at": "2026-10-18T16:58:17.297Z",
+  "dependency_graph_enabled_at": "2026-10-18T17:01:24.557Z",
+  "dependency_review_failed_job_rerun_requested_at": "2026-10-18T17:01:36.442Z",
+  "test_merge": {
+    "sha": "76d0130283eb142314cf11bb42825798e9279a05",
+    "tree": "75180283dda44c16550c644a7df3f88545424ac4",
+    "parents": [
+      "f0b58f3e008b6f4c3f9a3bf1f7f3f43d44ee908a",
+      "7e6477880259d60d4dfa60a5e34e4ea7875176b1"
+    ],
+    "verification": "Full git diff against the contribution commit contains only the two two-line schedule removals; source, test, Maven build and other inputs are otherwise byte-identical."
+  },
+  "automation_scope": "The owned fork default branch has no schedule triggers. Original PR/push/branch_protection_rule security triggers and jobs remain. Automatic dependency submission and Dependabot updates remain disabled. No additional recurring task was created.",
+  "hosted_validation_status": "Pending; this setup receipt does not claim a completed build."
+}

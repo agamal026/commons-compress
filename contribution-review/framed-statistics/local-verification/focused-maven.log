@@ -1,0 +1,96 @@
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: <workspace>/jackson-maven-home/wrapper/dists/apache-maven-3.9.11/a2d47e15
+Java version: 17.0.20.1, vendor: Eclipse Adoptium, runtime: <workspace>/continuation-2026-10-18-1606/java-runtime/jdk-17.0.20.1+1
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "6.18.55", arch: "amd64", family: "unix"
+[INFO] Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< org.apache.commons:commons-compress >-----------------
+[INFO] Building Apache Commons Compress 1.29.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-maven-version) @ commons-compress ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-java-version) @ commons-compress ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] --- apache-rat:0.18:check (rat-check) @ commons-compress ---
+[INFO] No issues found.
+[INFO] 
+[INFO] --- artifact:3.7.0:check-buildplan (check-buildplan) @ commons-compress ---
+[INFO] No known issue in 21 plugins
+[INFO] 
+[INFO] --- build-helper:3.6.2:parse-version (parse-version) @ commons-compress ---
+[INFO] 
+[INFO] --- antrun:3.2.0:run (javadoc.resources) @ commons-compress ---
+[INFO] Executing tasks
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:3.3.0:process (process-resource-bundles) @ commons-compress ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ commons-compress ---
+[INFO] skip non existing resourceDirectory <workspace>/commons-compress-counter/src/main/resources
+[INFO] Copying 2 resources from . to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ commons-compress ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 425 source files with javac [debug release 8] to target/classes
+[INFO] <workspace>/commons-compress-counter/src/main/java/org/apache/commons/compress/archivers/Lister.java: Some input files use or override a deprecated API.
+[INFO] <workspace>/commons-compress-counter/src/main/java/org/apache/commons/compress/archivers/Lister.java: Recompile with -Xlint:deprecation for details.
+[INFO] <workspace>/commons-compress-counter/src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] <workspace>/commons-compress-counter/src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- bundle:6.2.0:manifest (bundle-manifest) @ commons-compress ---
+[INFO] Writing manifest: <workspace>/commons-compress-counter/target/classes/META-INF/MANIFEST.MF
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ commons-compress ---
+[INFO] Copying 412 resources from src/test/resources to target/test-classes
+[INFO] Copying 2 resources from . to target/test-classes/META-INF
+[INFO] 
+[INFO] --- antrun:3.2.0:run (default) @ commons-compress ---
+[INFO] Executing tasks
+[INFO]     [untar] Expanding: <workspace>/commons-compress-counter/src/test/resources/zstd-tests.tar into <workspace>/commons-compress-counter/target/test-classes
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ commons-compress ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 285 source files with javac [debug release 8] to target/test-classes
+[INFO] <workspace>/commons-compress-counter/src/test/java/org/apache/commons/compress/LegacyConstructorsTest.java: Some input files use or override a deprecated API.
+[INFO] <workspace>/commons-compress-counter/src/test/java/org/apache/commons/compress/LegacyConstructorsTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] <workspace>/commons-compress-counter/src/test/java/org/apache/commons/compress/harmony/unpack200/BcBandsTest.java: <workspace>/commons-compress-counter/src/test/java/org/apache/commons/compress/harmony/unpack200/BcBandsTest.java uses unchecked or unsafe operations.
+[INFO] <workspace>/commons-compress-counter/src/test/java/org/apache/commons/compress/harmony/unpack200/BcBandsTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- jacoco:0.8.15:prepare-agent (prepare-agent) @ commons-compress ---
+[INFO] argLine set to -javaagent:<workspace>/commons-maven-repository/org/jacoco/org.jacoco.agent/0.8.15/org.jacoco.agent-0.8.15-runtime.jar=destfile=<workspace>/commons-compress-counter/target/jacoco.exec,exclclassloader=jdk.internal.loader.ClassLoaders$PlatformClassLoader
+[INFO] 
+[INFO] --- surefire:3.6.0:test (default-test) @ commons-compress ---
+[INFO] Surefire report directory: <workspace>/commons-compress-counter/target/surefire-reports
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] parallel='none', perCoreThreadCount=true, threadCount=0, useUnlimitedThreads=false, threadCountSuites=0, threadCountClasses=0, threadCountMethods=0, parallelOptimized=true, enableOutErrElements=true, enablePropertiesElement=true
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.517 s -- in org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest
+[INFO] Running org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.706 s -- in org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest
+[INFO] Running org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.388 s -- in org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest
+[INFO] Running org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.377 s -- in org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 89, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  22.761 s
+[INFO] Finished at: 2026-10-18T12:38:55-04:00
+[INFO] ------------------------------------------------------------------------

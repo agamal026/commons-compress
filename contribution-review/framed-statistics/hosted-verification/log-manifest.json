@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "archive": "job-logs.zip",
+  "archive_bytes": 439350,
+  "archive_sha256": "218eee795b29e8aa44c5868921f2ffb588046d03b67e4a1719e35eba36d2f1de",
+  "job_logs": 22,
+  "decoded_log_bytes": 2733264,
+  "members": [
+    {
+      "path": "compress-owned-ci-logs/job-117734074760.txt",
+      "bytes": 242051,
+      "sha256": "dc9dd6050603b2f26cd2010066fe24ee280679aca168ea1dff74846f22e6d053"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734074807.txt",
+      "bytes": 15125,
+      "sha256": "d92f1b250897ee001a10557923896b66dbff1016f6597edb3ac8ddd48a364606"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075003.txt",
+      "bytes": 127871,
+      "sha256": "37f134026a56abe126d5c56576ed3036734a57730db7b00430d42399d8b0f36b"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075133.txt",
+      "bytes": 125805,
+      "sha256": "e2c1398e7849f8cb8e15ca6517031596d37fca78d008ef12d71829dfc2a7a80c"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075137.txt",
+      "bytes": 125036,
+      "sha256": "8dc288d8557afd6b3814c3a8b940cce9d2b8b3ff8a4ce38c635596f7fc18f460"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075148.txt",
+      "bytes": 138958,
+      "sha256": "cd6d51518c07af9e392dba195fe8c17d0c76cbc846f8bcbb6193ef5b68f3639e"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075167.txt",
+      "bytes": 128431,
+      "sha256": "829d064a05a6b29f3795752b2ef03927c2bb254ec59e0eca088e4a00871ec8fd"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075203.txt",
+      "bytes": 131243,
+      "sha256": "fbf398042f1a2c780ff914597a80fe82af67ffd6e91498e69c0aeced70814d5c"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075212.txt",
+      "bytes": 127596,
+      "sha256": "132c809dc216d3c78cd2d382bd11176866303415888a843d6852c0c8225ec332"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075223.txt",
+      "bytes": 136738,
+      "sha256": "cbc7523c7c5dbf76d8ded6e56441189079621558d3d3b904847ec6396a0dc0ac"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075229.txt",
+      "bytes": 133162,
+      "sha256": "d023b725d5fbdbbe6e637f225b44633b767d69b0ac0f7b04e1f442c6afa4551c"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075237.txt",
+      "bytes": 128021,
+      "sha256": "4d471a6f99fcec746e313d019d710517d3e67e1073985884e903e02858e22703"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075241.txt",
+      "bytes": 127390,
+      "sha256": "d37bf5c095ba1a5f4f3b3f31d7198e3eec9a1b710ef2c6f05ec488ad363952c5"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075255.txt",
+      "bytes": 125188,
+      "sha256": "159cf8c22808c5025651bd603166cb7d36076952c2783c29d663c86165ca95c1"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075276.txt",
+      "bytes": 131891,
+      "sha256": "4778e13249b8a2fed4130eacbea32b580c1899959fc43ee13a683e613624e396"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075288.txt",
+      "bytes": 137181,
+      "sha256": "041254434a13fc8a16ecdc34c60d0de77703322a66dd4634f6723b55fb1b733e"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075294.txt",
+      "bytes": 127748,
+      "sha256": "a2120aeb6c9e898b28aa3eb183ba5cadf073168d02b024a384646aa241c1ec96"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075297.txt",
+      "bytes": 128165,
+      "sha256": "653d85bb11cedaf90beb6182a3c8c903f47f651599d67a330f387f2e2f115d0e"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075316.txt",
+      "bytes": 126005,
+      "sha256": "19896a833daa1426919fabc92d92ca145e22ab4982949da7a4127594a0b838fe"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075319.txt",
+      "bytes": 126125,
+      "sha256": "1ca2ea13f77ef7438a6d75a27d34d1f8808d0d3d612192b2eab95716974a1f4f"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734075480.txt",
+      "bytes": 127965,
+      "sha256": "e8063901afa15842835e6fb8a050965b6a617a6fc1f1e9ffe3ca1569879b033c"
+    },
+    {
+      "path": "compress-owned-ci-logs/job-117734711568.txt",
+      "bytes": 15569,
+      "sha256": "b9363968ea73fdf2d53902ef2c00fa35e8f34725f9c436d419ce79f60483540b"
+    }
+  ],
+  "preservation": "Complete decoded UTF-8 responses, including returned BOM and LF/CRLF endings. Original transport bytes were not available. Private retrieval records are excluded."
+}

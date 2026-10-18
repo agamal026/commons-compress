@@ -1,0 +1,2464 @@
+{
+  "schema_version": 1,
+  "review_type": "independent automated hosted CI log audit",
+  "decision": "All 19 owned Maven jobs passed their actual default builds, including the experimental Java 28-ea job. CodeQL and Dependency Review attempt 2 succeeded. The failed first Dependency Review attempt is retained as history.",
+  "repository": "https://github.com/agamal026/commons-compress",
+  "owned_validation_pull_request": {
+    "url": "https://github.com/agamal026/commons-compress/pull/1",
+    "state": "open",
+    "draft": true,
+    "head_sha": "7e6477880259d60d4dfa60a5e34e4ea7875176b1",
+    "base_sha": "f0b58f3e008b6f4c3f9a3bf1f7f3f43d44ee908a",
+    "merge_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+    "observed_at": "2026-10-18T17:05:49.642Z",
+    "counts_as_external_contribution": false
+  },
+  "source_identity": {
+    "source_commit": "7e6477880259d60d4dfa60a5e34e4ea7875176b1",
+    "source_tree": "9c0430eb9a40f5f493132589e6fef3b7ffcbe494",
+    "tested_checkout": "76d0130283eb142314cf11bb42825798e9279a05",
+    "tested_tree": "75180283dda44c16550c644a7df3f88545424ac4",
+    "tested_merge_parents": [
+      "f0b58f3e008b6f4c3f9a3bf1f7f3f43d44ee908a",
+      "7e6477880259d60d4dfa60a5e34e4ea7875176b1"
+    ],
+    "commit_metadata_observed_at": {
+      "head_commit": "2026-10-18T16:59:57.925Z",
+      "merge_commit": "2026-10-18T16:59:57.955Z"
+    },
+    "source_input_equivalence": {
+      "provenance": "Implementation agent reported its completed Git comparison; this reviewer independently read the canonical commit/tree/parent identities and every audited checkout log.",
+      "only_differing_files": [
+        ".github/workflows/codeql-analysis.yml",
+        ".github/workflows/scorecards-analysis.yml"
+      ],
+      "difference": "Only the two-line schedule block in each file was removed on the validation base; four removed lines total.",
+      "production_tests_build_configuration_and_maven_workflow_otherwise_identical": true
+    }
+  },
+  "workflow_definition": {
+    "maven_url": "https://github.com/agamal026/commons-compress/blob/7e6477880259d60d4dfa60a5e34e4ea7875176b1/.github/workflows/maven.yml",
+    "pom_url": "https://github.com/agamal026/commons-compress/blob/7e6477880259d60d4dfa60a5e34e4ea7875176b1/pom.xml",
+    "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+    "default_goal": "clean artifact:check-buildplan verify apache-rat:check checkstyle:check pmd:check japicmp:cmp javadoc:javadoc",
+    "java8_default_goal": "clean artifact:check-buildplan verify apache-rat:check checkstyle:check pmd:check japicmp:cmp",
+    "java8_qualification": "The existing java8 profile omits Javadoc because of incompatible package-list versus element-list expectations for remote links. No Java 8 Javadoc execution is claimed.",
+    "ordinary_matrix": {
+      "operating_systems": [
+        "ubuntu-latest",
+        "windows-latest",
+        "macos-latest"
+      ],
+      "java_versions": [
+        "8",
+        "11",
+        "17",
+        "21",
+        "25",
+        "27"
+      ],
+      "jobs": 18
+    },
+    "experimental_matrix": {
+      "os": "ubuntu-latest",
+      "java": "28-ea",
+      "continue_on_error": true,
+      "actual_job_result": "success"
+    }
+  },
+  "maven": {
+    "workflow": {
+      "id": 39147450534,
+      "html_url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534",
+      "name": "Java CI",
+      "run_attempt": 1,
+      "head_sha": "7e6477880259d60d4dfa60a5e34e4ea7875176b1",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T16:58:47Z",
+      "run_started_at": "2026-10-18T16:58:47Z",
+      "updated_at": "2026-10-18T17:06:21Z",
+      "observed_at": "2026-10-18T17:07:10.113Z"
+    },
+    "actual_jobs": 19,
+    "successful_jobs": 19,
+    "failed_jobs": 0,
+    "full_suite_by_os": [
+      {
+        "os": "ubuntu-latest",
+        "jobs": 7,
+        "tests_per_job": 4791,
+        "failures_per_job": 0,
+        "errors_per_job": 0,
+        "skipped_per_job": [
+          26
+        ]
+      },
+      {
+        "os": "windows-latest",
+        "jobs": 6,
+        "tests_per_job": 4791,
+        "failures_per_job": 0,
+        "errors_per_job": 0,
+        "skipped_per_job": [
+          30
+        ]
+      },
+      {
+        "os": "macos-latest",
+        "jobs": 6,
+        "tests_per_job": 4791,
+        "failures_per_job": 0,
+        "errors_per_job": 0,
+        "skipped_per_job": [
+          28
+        ]
+      }
+    ],
+    "relevant_tests_per_job": 89,
+    "new_shared_parameterized_methods": 5,
+    "new_shared_format_invocations_per_job": 10,
+    "rat_checkstyle_pmd_japicmp_successful_jobs": 19,
+    "javadoc_executed_jobs": 16,
+    "java8_profile_javadoc_omissions": 3,
+    "jobs": [
+      {
+        "job_id": 117734075003,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075003",
+        "name": "build (ubuntu-latest, 27, false)",
+        "os": "ubuntu-latest",
+        "java_matrix_value": "27",
+        "actual_java_runtime": "27, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:50Z",
+        "completed_at": "2026-10-18T17:02:13Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:58:55.3619610Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:58:59.5620555Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 26,
+          "reported_at": "2026-10-18T17:01:05.6760293Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:03.4680882Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:01.2030171Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:02.7144921Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:57.1333243Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:08.8447635Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.18",
+            "started_at": "2026-10-18T17:01:37.9545619Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:01:40.5576804Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:01:57.4962215Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:01:57.5017173Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:02:00.6739986Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:02:09.5120401Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075003.txt",
+          "bytes": 127871,
+          "sha256": "37f134026a56abe126d5c56576ed3036734a57730db7b00430d42399d8b0f36b",
+          "retrieved_at": "2026-10-18T17:04:22.432Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075003/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 1081,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075133,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075133",
+        "name": "build (ubuntu-latest, 8, false)",
+        "os": "ubuntu-latest",
+        "java_matrix_value": "8",
+        "actual_java_runtime": "1.8.0_504, vendor: Temurin",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:50Z",
+        "completed_at": "2026-10-18T17:02:41Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:58:54.3570127Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:58:55.0836959Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 26,
+          "reported_at": "2026-10-18T17:01:41.5743485Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:38.1473346Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:35.0516626Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:37.0643153Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:30.8517179Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:06.9319107Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.17",
+            "started_at": "2026-10-18T17:02:15.0752935Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:02:20.1555477Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:02:38.6849447Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:02:38.6851170Z"
+          }
+        ],
+        "javadoc": "omitted by existing java8 defaultGoal profile",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:02:39.0994604Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075133.txt",
+          "bytes": 125805,
+          "sha256": "e2c1398e7849f8cb8e15ca6517031596d37fca78d008ef12d71829dfc2a7a80c",
+          "retrieved_at": "2026-10-18T17:04:22.281Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075133/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 1089,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075137,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075137",
+        "name": "build (windows-latest, 17, false)",
+        "os": "windows-latest",
+        "java_matrix_value": "17",
+        "actual_java_runtime": "17.0.20.1, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:50Z",
+        "completed_at": "2026-10-18T17:04:23Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:59:00.2755152Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:59:03.5990099Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 30,
+          "reported_at": "2026-10-18T17:02:36.6947739Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:02:15.0336969Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:02:17.3447368Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:02:19.6254306Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:02:20.4854499Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:26.0212992Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.18",
+            "started_at": "2026-10-18T17:03:35.4106261Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:03:38.7199920Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:04:01.1869121Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:04:01.1871027Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:04:04.8387912Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:04:16.0417810Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075137.txt",
+          "bytes": 125036,
+          "sha256": "8dc288d8557afd6b3814c3a8b940cce9d2b8b3ff8a4ce38c635596f7fc18f460",
+          "retrieved_at": "2026-10-18T17:06:09.566Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075137/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 1043,
+          "lf_count": 1044,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075148,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075148",
+        "name": "build (ubuntu-latest, 25, false)",
+        "os": "ubuntu-latest",
+        "java_matrix_value": "25",
+        "actual_java_runtime": "25.0.4.1, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:50Z",
+        "completed_at": "2026-10-18T17:01:48Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:58:56.3893341Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:58:57.0758913Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 26,
+          "reported_at": "2026-10-18T17:00:50.7714204Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:48.8792874Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:46.8673141Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:48.1215380Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:43.1535529Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:08.6511415Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.18",
+            "started_at": "2026-10-18T17:01:18.2459847Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:01:20.2288536Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:01:33.6474633Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:01:33.6534620Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:01:36.9556048Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:01:44.1997734Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075148.txt",
+          "bytes": 138958,
+          "sha256": "cd6d51518c07af9e392dba195fe8c17d0c76cbc846f8bcbb6193ef5b68f3639e",
+          "retrieved_at": "2026-10-18T17:02:35.584Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075148/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 1162,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075167,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075167",
+        "name": "build (windows-latest, 27, false)",
+        "os": "windows-latest",
+        "java_matrix_value": "27",
+        "actual_java_runtime": "27, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:51Z",
+        "completed_at": "2026-10-18T17:03:53Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:59:04.3492548Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:59:13.5463870Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 30,
+          "reported_at": "2026-10-18T17:02:12.7408734Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:53.4003451Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:55.2715563Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:56.9290236Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:57.7551007Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:31.4617396Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.18",
+            "started_at": "2026-10-18T17:03:07.4854695Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:03:10.6736403Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:03:31.2852607Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:03:31.2909327Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:03:34.8482131Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:03:46.1171305Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075167.txt",
+          "bytes": 128431,
+          "sha256": "829d064a05a6b29f3795752b2ef03927c2bb254ec59e0eca088e4a00871ec8fd",
+          "retrieved_at": "2026-10-18T17:06:09.585Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075167/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 1070,
+          "lf_count": 1071,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075203,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075203",
+        "name": "build (ubuntu-latest, 11, false)",
+        "os": "ubuntu-latest",
+        "java_matrix_value": "11",
+        "actual_java_runtime": "11.0.32.1, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:51Z",
+        "completed_at": "2026-10-18T17:03:16Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:58:55.8511547Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:58:56.7235685Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 26,
+          "reported_at": "2026-10-18T17:01:54.8440773Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:51.7884626Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:48.6298614Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:50.7106097Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:44.1922529Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:12.1657966Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.17",
+            "started_at": "2026-10-18T17:02:31.6492674Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:02:37.4860802Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:02:54.7917310Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:02:54.7929346Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:03:01.0128725Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:03:11.9124117Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075203.txt",
+          "bytes": 131243,
+          "sha256": "fbf398042f1a2c780ff914597a80fe82af67ffd6e91498e69c0aeced70814d5c",
+          "retrieved_at": "2026-10-18T17:04:22.368Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075203/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 1141,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075212,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075212",
+        "name": "build (windows-latest, 8, false)",
+        "os": "windows-latest",
+        "java_matrix_value": "8",
+        "actual_java_runtime": "1.8.0_504, vendor: Temurin",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:51Z",
+        "completed_at": "2026-10-18T17:04:08Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:59:01.8948242Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:59:05.0733713Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 30,
+          "reported_at": "2026-10-18T17:02:45.0689738Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:02:27.3003313Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:02:29.1692974Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:02:30.8850028Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:02:31.5027018Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:31.8305473Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.17",
+            "started_at": "2026-10-18T17:03:40.2973170Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:03:45.4931112Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:04:01.7158676Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:04:01.7187082Z"
+          }
+        ],
+        "javadoc": "omitted by existing java8 defaultGoal profile",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:04:01.9697611Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075212.txt",
+          "bytes": 127596,
+          "sha256": "132c809dc216d3c78cd2d382bd11176866303415888a843d6852c0c8225ec332",
+          "retrieved_at": "2026-10-18T17:06:09.560Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075212/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 1110,
+          "lf_count": 1111,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075223,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075223",
+        "name": "build (ubuntu-latest, 17, false)",
+        "os": "ubuntu-latest",
+        "java_matrix_value": "17",
+        "actual_java_runtime": "17.0.20.1, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:50Z",
+        "completed_at": "2026-10-18T17:01:24Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:58:56.3330993Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:58:56.8360988Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 26,
+          "reported_at": "2026-10-18T17:00:34.6896776Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:32.9097531Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:31.2128025Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:32.3247147Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:28.4588639Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:10.1759477Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.18",
+            "started_at": "2026-10-18T17:01:01.2377671Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:01:02.6678575Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:01:12.5274072Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:01:12.5321717Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:01:14.2432897Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:01:19.5474780Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075223.txt",
+          "bytes": 136738,
+          "sha256": "cbc7523c7c5dbf76d8ded6e56441189079621558d3d3b904847ec6396a0dc0ac",
+          "retrieved_at": "2026-10-18T17:02:35.608Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075223/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 1148,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075229,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075229",
+        "name": "build (windows-latest, 11, false)",
+        "os": "windows-latest",
+        "java_matrix_value": "11",
+        "actual_java_runtime": "11.0.32.1, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:51Z",
+        "completed_at": "2026-10-18T17:06:20Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:59:01.1622069Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:59:04.3702508Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 30,
+          "reported_at": "2026-10-18T17:03:52.9315272Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:03:10.7143719Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:03:14.1649137Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:03:16.5495528Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:03:18.3380184Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:30.8111565Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.17",
+            "started_at": "2026-10-18T17:05:15.7762417Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:05:23.1095823Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:05:54.3437377Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:05:54.3468160Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:06:01.9872740Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:06:13.4478493Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075229.txt",
+          "bytes": 133162,
+          "sha256": "d023b725d5fbdbbe6e637f225b44633b767d69b0ac0f7b04e1f442c6afa4551c",
+          "retrieved_at": "2026-10-18T17:07:10.758Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075229/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 1172,
+          "lf_count": 1173,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075237,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075237",
+        "name": "build (windows-latest, 25, false)",
+        "os": "windows-latest",
+        "java_matrix_value": "25",
+        "actual_java_runtime": "25.0.4.1, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:50Z",
+        "completed_at": "2026-10-18T17:02:48Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:59:00.7335974Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:59:02.9498451Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 30,
+          "reported_at": "2026-10-18T17:01:26.4732982Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:14.2242087Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:15.3469465Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:16.3390969Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:16.8750620Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:30.2166849Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.18",
+            "started_at": "2026-10-18T17:02:15.3019198Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:02:17.0765541Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:02:31.8760462Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:02:31.8822857Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:02:34.5830664Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:02:41.3297251Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075237.txt",
+          "bytes": 128021,
+          "sha256": "4d471a6f99fcec746e313d019d710517d3e67e1073985884e903e02858e22703",
+          "retrieved_at": "2026-10-18T17:04:22.480Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075237/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 1066,
+          "lf_count": 1067,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075241,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075241",
+        "name": "build (macos-latest, 8, false)",
+        "os": "macos-latest",
+        "java_matrix_value": "8",
+        "actual_java_runtime": "1.8.0_504, vendor: Azul Systems, Inc.",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:56Z",
+        "completed_at": "2026-10-18T17:04:22Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:59:04.5874610Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:59:10.5884880Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 28,
+          "reported_at": "2026-10-18T17:02:44.8644410Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:02:32.2186930Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:02:22.0533070Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:02:21.8587260Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:02:32.0330160Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:19.5762910Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.17",
+            "started_at": "2026-10-18T17:03:29.2722050Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:03:39.0786600Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:04:10.2366730Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:04:10.2413670Z"
+          }
+        ],
+        "javadoc": "omitted by existing java8 defaultGoal profile",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:04:10.6773460Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075241.txt",
+          "bytes": 127390,
+          "sha256": "d37bf5c095ba1a5f4f3b3f31d7198e3eec9a1b710ef2c6f05ec488ad363952c5",
+          "retrieved_at": "2026-10-18T17:06:09.610Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075241/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 1098,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075255,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075255",
+        "name": "build (macos-latest, 17, false)",
+        "os": "macos-latest",
+        "java_matrix_value": "17",
+        "actual_java_runtime": "17.0.20.1, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:58Z",
+        "completed_at": "2026-10-18T17:02:59Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:59:06.0220100Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:59:14.7538830Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 28,
+          "reported_at": "2026-10-18T17:01:54.0665340Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:44.0671690Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:39.6803670Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:39.5507880Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:43.9480540Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:24.0685640Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.18",
+            "started_at": "2026-10-18T17:02:28.4441750Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:02:30.9750020Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:02:43.8221440Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:02:43.8424110Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:02:45.9238580Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:02:52.3803170Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075255.txt",
+          "bytes": 125188,
+          "sha256": "159cf8c22808c5025651bd603166cb7d36076952c2783c29d663c86165ca95c1",
+          "retrieved_at": "2026-10-18T17:04:22.426Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075255/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 1048,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075276,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075276",
+        "name": "build (macos-latest, 11, false)",
+        "os": "macos-latest",
+        "java_matrix_value": "11",
+        "actual_java_runtime": "11.0.32.1, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:56Z",
+        "completed_at": "2026-10-18T17:03:19Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:59:02.2230060Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:59:09.0854870Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 28,
+          "reported_at": "2026-10-18T17:02:05.9819830Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:53.7083410Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:48.5680700Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:48.4268200Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:53.4900390Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:17.6286070Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.17",
+            "started_at": "2026-10-18T17:02:39.5741400Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:02:44.6429970Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:02:58.1366480Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:02:58.1467910Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:03:03.6239120Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:03:10.9700200Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075276.txt",
+          "bytes": 131891,
+          "sha256": "4778e13249b8a2fed4130eacbea32b580c1899959fc43ee13a683e613624e396",
+          "retrieved_at": "2026-10-18T17:04:22.423Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075276/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 1133,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075288,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075288",
+        "name": "build (ubuntu-latest, 21, false)",
+        "os": "ubuntu-latest",
+        "java_matrix_value": "21",
+        "actual_java_runtime": "21.0.12.1, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:50Z",
+        "completed_at": "2026-10-18T17:01:48Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:58:54.0549926Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:58:54.5802073Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 26,
+          "reported_at": "2026-10-18T17:00:53.6432288Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:51.8822673Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:49.9956935Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:51.2332133Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:46.7687711Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:06.5380625Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.18",
+            "started_at": "2026-10-18T17:01:20.4336625Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:01:22.7093558Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:01:36.4163555Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:01:36.4164359Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:01:39.0380453Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:01:45.6424672Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075288.txt",
+          "bytes": 137181,
+          "sha256": "041254434a13fc8a16ecdc34c60d0de77703322a66dd4634f6723b55fb1b733e",
+          "retrieved_at": "2026-10-18T17:02:35.457Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075288/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 1149,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075294,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075294",
+        "name": "build (macos-latest, 27, false)",
+        "os": "macos-latest",
+        "java_matrix_value": "27",
+        "actual_java_runtime": "27, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:54Z",
+        "completed_at": "2026-10-18T17:01:53Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:59:00.8880390Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:59:06.5919050Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 28,
+          "reported_at": "2026-10-18T17:00:58.7886700Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:52.2860300Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:48.2946210Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:48.1746490Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:00:52.1550690Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:13.0508150Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.18",
+            "started_at": "2026-10-18T17:01:22.3591200Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:01:25.0123880Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:01:38.0345140Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:01:38.0429910Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:01:40.6184700Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:01:46.2240130Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075294.txt",
+          "bytes": 127748,
+          "sha256": "a2120aeb6c9e898b28aa3eb183ba5cadf073168d02b024a384646aa241c1ec96",
+          "retrieved_at": "2026-10-18T17:02:35.772Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075294/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 1068,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075297,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075297",
+        "name": "build (macos-latest, 25, false)",
+        "os": "macos-latest",
+        "java_matrix_value": "25",
+        "actual_java_runtime": "25.0.4.1, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T17:02:01Z",
+        "completed_at": "2026-10-18T17:05:42Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T17:02:08.2297110Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T17:02:16.9850280Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 28,
+          "reported_at": "2026-10-18T17:04:32.1370970Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:04:20.4131310Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:04:15.4987770Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:04:15.4008650Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:04:20.1681840Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T17:02:20.1400390Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.18",
+            "started_at": "2026-10-18T17:05:00.3535410Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:05:03.4895170Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:05:22.3674700Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:05:22.3882330Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:05:26.4663230Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:05:34.9202910Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075297.txt",
+          "bytes": 128165,
+          "sha256": "653d85bb11cedaf90beb6182a3c8c903f47f651599d67a330f387f2e2f115d0e",
+          "retrieved_at": "2026-10-18T17:06:09.549Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075297/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 1071,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075316,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075316",
+        "name": "build (macos-latest, 21, false)",
+        "os": "macos-latest",
+        "java_matrix_value": "21",
+        "actual_java_runtime": "21.0.12.1, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:56Z",
+        "completed_at": "2026-10-18T17:03:33Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:59:05.5341170Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:59:12.8445310Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 28,
+          "reported_at": "2026-10-18T17:02:03.6421090Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:52.6633210Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:47.1373290Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:47.0340390Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:52.4256560Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:23.2032650Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.18",
+            "started_at": "2026-10-18T17:02:41.8472190Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:02:45.4891060Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:03:05.8870350Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:03:05.9015310Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:03:10.0982040Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:03:19.1098690Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075316.txt",
+          "bytes": 126005,
+          "sha256": "19896a833daa1426919fabc92d92ca145e22ab4982949da7a4127594a0b838fe",
+          "retrieved_at": "2026-10-18T17:04:22.353Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075316/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 1053,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075319,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075319",
+        "name": "build (windows-latest, 21, false)",
+        "os": "windows-latest",
+        "java_matrix_value": "21",
+        "actual_java_runtime": "21.0.12.1, vendor: Eclipse Adoptium",
+        "experimental": false,
+        "continue_on_error": false,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:50Z",
+        "completed_at": "2026-10-18T17:03:47Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:58:59.6488611Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:59:02.7895688Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 30,
+          "reported_at": "2026-10-18T17:02:03.5671792Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:43.6168604Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:45.5625146Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:47.2102082Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:48.0434719Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:20.3885277Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.18",
+            "started_at": "2026-10-18T17:03:00.4153215Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:03:03.5064314Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:03:24.8160232Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:03:24.8205601Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:03:28.5597234Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:03:39.5464320Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075319.txt",
+          "bytes": 126125,
+          "sha256": "1ca2ea13f77ef7438a6d75a27d34d1f8808d0d3d612192b2eab95716974a1f4f",
+          "retrieved_at": "2026-10-18T17:04:22.335Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075319/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 1051,
+          "lf_count": 1052,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734075480,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450534/job/117734075480",
+        "name": "build (ubuntu-latest, 28-ea, true)",
+        "os": "ubuntu-latest",
+        "java_matrix_value": "28-ea",
+        "actual_java_runtime": "28-beta, vendor: Eclipse Adoptium",
+        "experimental": true,
+        "continue_on_error": true,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T16:58:50Z",
+        "completed_at": "2026-10-18T17:02:20Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "checkout_reported_at": "2026-10-18T16:58:54.0743237Z",
+        "command": "mvn --errors --show-version --batch-mode --no-transfer-progress",
+        "command_started_at": "2026-10-18T16:59:05.6797585Z",
+        "full_suite": {
+          "tests": 4791,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 26,
+          "reported_at": "2026-10-18T17:01:14.4773354Z"
+        },
+        "relevant_test_classes": [
+          {
+            "class": "org.apache.commons.compress.compressors.FramedCompressorInputStreamStatisticsTest",
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:12.1156336Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest",
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:09.8256379Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest",
+            "tests": 25,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:11.3495092Z"
+          },
+          {
+            "class": "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest",
+            "tests": 14,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "reported_at": "2026-10-18T17:01:05.7093215Z"
+          }
+        ],
+        "relevant_test_total": 89,
+        "explicit_default_cli_goals": [
+          {
+            "plugin": "artifact",
+            "goal": "check-buildplan",
+            "version": "3.7.0",
+            "started_at": "2026-10-18T16:59:14.9610379Z"
+          },
+          {
+            "plugin": "apache-rat",
+            "goal": "check",
+            "version": "0.18",
+            "started_at": "2026-10-18T17:01:45.3183709Z"
+          },
+          {
+            "plugin": "checkstyle",
+            "goal": "check",
+            "version": "3.6.0",
+            "started_at": "2026-10-18T17:01:48.1203946Z"
+          },
+          {
+            "plugin": "pmd",
+            "goal": "check",
+            "version": "3.28.0",
+            "started_at": "2026-10-18T17:02:04.7372905Z"
+          },
+          {
+            "plugin": "japicmp",
+            "goal": "cmp",
+            "version": "0.26.3",
+            "started_at": "2026-10-18T17:02:04.7423329Z"
+          },
+          {
+            "plugin": "javadoc",
+            "goal": "javadoc",
+            "version": "3.12.0",
+            "started_at": "2026-10-18T17:02:08.1757525Z"
+          }
+        ],
+        "javadoc": "executed; subsequent BUILD SUCCESS",
+        "checkstyle_zero_violations_reported": true,
+        "build_success_at": "2026-10-18T17:02:17.4326564Z",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734075480.txt",
+          "bytes": 127965,
+          "sha256": "e8063901afa15842835e6fb8a050965b6a617a6fc1f1e9ffe3ca1569879b033c",
+          "retrieved_at": "2026-10-18T17:04:22.450Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734075480/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 1081,
+          "decoded_text_saved_exactly": true
+        }
+      }
+    ]
+  },
+  "codeql": {
+    "workflow": {
+      "id": 39147450569,
+      "html_url": "https://github.com/agamal026/commons-compress/actions/runs/39147450569",
+      "name": "CodeQL",
+      "run_attempt": 1,
+      "head_sha": "7e6477880259d60d4dfa60a5e34e4ea7875176b1",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T16:58:47Z",
+      "run_started_at": "2026-10-18T16:58:47Z",
+      "updated_at": "2026-10-18T17:01:51Z",
+      "observed_at": "2026-10-18T17:03:53.949Z"
+    },
+    "job_id": 117734074760,
+    "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450569/job/117734074760",
+    "status": "completed",
+    "conclusion": "success",
+    "started_at": "2026-10-18T16:58:50Z",
+    "completed_at": "2026-10-18T17:01:50Z",
+    "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+    "build_command": "mvn clean package -ntp -f \"pom.xml\" -B -V -e -Dfindbugs.skip -Dcheckstyle.skip -Dpmd.skip=true -Dspotbugs.skip -Denforcer.skip -Dmaven.javadoc.skip -DskipTests -Dmaven.test.skip.exec -Dlicense.skip=true -Drat.skip=true -Dspotless.check.skip=true",
+    "analysis_results_uploaded": true,
+    "qualification": "The CodeQL build explicitly skips tests and several checks. Its successful analysis is separate from the 19 actual default Maven builds and is not additional regression-test execution or a claim of zero security findings.",
+    "log": {
+      "file": "compress-owned-ci-logs/job-117734074760.txt",
+      "bytes": 242051,
+      "sha256": "dc9dd6050603b2f26cd2010066fe24ee280679aca168ea1dff74846f22e6d053",
+      "retrieved_at": "2026-10-18T17:02:35.755Z",
+      "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734074760/logs",
+      "utf8_bom_preserved": true,
+      "crlf_count": 0,
+      "lf_count": 2372,
+      "decoded_text_saved_exactly": true
+    }
+  },
+  "dependency_review": {
+    "workflow": {
+      "id": 39147450572,
+      "html_url": "https://github.com/agamal026/commons-compress/actions/runs/39147450572",
+      "name": "Dependency Review",
+      "run_attempt": 2,
+      "head_sha": "7e6477880259d60d4dfa60a5e34e4ea7875176b1",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T16:58:47Z",
+      "run_started_at": "2026-10-18T17:01:36Z",
+      "updated_at": "2026-10-18T17:01:50Z",
+      "observed_at": "2026-10-18T17:02:02.392Z"
+    },
+    "attempts": [
+      {
+        "job_id": 117734074807,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450572/job/117734074807",
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "failure",
+        "started_at": "2026-10-18T16:58:50Z",
+        "completed_at": "2026-10-18T16:58:57Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "classification": "repository capability unavailable before dependency review; no source/test failure established",
+        "error_diagnostics": [
+          "2026-10-18T16:58:55.1158447Z ##[error]Dependency review is not supported on this repository. Please ensure that Dependency graph is enabled, see https://github.com/agamal026/commons-compress/settings/security_analysis"
+        ],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734074807.txt",
+          "bytes": 15125,
+          "sha256": "d92f1b250897ee001a10557923896b66dbff1016f6597edb3ac8ddd48a364606",
+          "retrieved_at": "2026-10-18T16:59:58.383Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734074807/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 169,
+          "decoded_text_saved_exactly": true
+        }
+      },
+      {
+        "job_id": 117734711568,
+        "url": "https://github.com/agamal026/commons-compress/actions/runs/39147450572/job/117734711568",
+        "run_attempt": 2,
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T17:01:40Z",
+        "completed_at": "2026-10-18T17:01:49Z",
+        "checkout_sha": "76d0130283eb142314cf11bb42825798e9279a05",
+        "classification": "dependency review completed successfully after repository capability was enabled",
+        "error_diagnostics": [],
+        "log": {
+          "file": "compress-owned-ci-logs/job-117734711568.txt",
+          "bytes": 15569,
+          "sha256": "b9363968ea73fdf2d53902ef2c00fa35e8f34725f9c436d419ce79f60483540b",
+          "retrieved_at": "2026-10-18T17:02:35.359Z",
+          "download_url": "https://api.github.com/repos/agamal026/commons-compress/actions/jobs/117734711568/logs",
+          "utf8_bom_preserved": true,
+          "crlf_count": 0,
+          "lf_count": 180,
+          "decoded_text_saved_exactly": true
+        }
+      }
+    ],
+    "setup_change_provenance": "Implementation agent reported enabling only Dependency graph on its owned fork at 2026-10-18T17:01:24.557Z and requesting the failed-job rerun at 2026-10-18T17:01:36.442Z. This reviewer made no settings changes or reruns.",
+    "attempt_1_preserved": true,
+    "current_attempt_result": "success"
+  },
+  "observation_windows": [
+    {
+      "started_at": "2026-10-18T16:59:33.730Z",
+      "completed_at": "2026-10-18T16:59:34.107Z",
+      "resources": [
+        "pull",
+        "maven_run",
+        "maven_jobs",
+        "codeql_run",
+        "codeql_jobs",
+        "dependency_run",
+        "dependency_jobs"
+      ]
+    },
+    {
+      "started_at": "2026-10-18T17:01:11.042Z",
+      "completed_at": "2026-10-18T17:01:11.202Z",
+      "resources": [
+        "maven_jobs",
+        "codeql_jobs"
+      ]
+    },
+    {
+      "started_at": "2026-10-18T17:02:02.392Z",
+      "completed_at": "2026-10-18T17:02:02.908Z",
+      "resources": [
+        "maven_jobs",
+        "codeql_jobs",
+        "dependency_run",
+        "dependency_jobs"
+      ]
+    },
+    {
+      "started_at": "2026-10-18T17:03:53.949Z",
+      "completed_at": "2026-10-18T17:03:54.356Z",
+      "resources": [
+        "maven_run",
+        "maven_jobs",
+        "codeql_run"
+      ]
+    },
+    {
+      "started_at": "2026-10-18T17:05:49.487Z",
+      "completed_at": "2026-10-18T17:05:49.906Z",
+      "resources": [
+        "maven_run",
+        "maven_jobs",
+        "pull"
+      ]
+    },
+    {
+      "started_at": "2026-10-18T17:07:10.113Z",
+      "completed_at": "2026-10-18T17:07:10.544Z",
+      "resources": [
+        "maven_run",
+        "maven_jobs"
+      ]
+    }
+  ],
+  "last_log_retrieved_at": "2026-10-18T17:07:10.758Z",
+  "audit_completed_at": "2026-10-18T17:10:43.762494Z",
+  "log_storage": {
+    "audited_log_files": 22,
+    "decoded_utf8_total_bytes": 2733264,
+    "original_transport_bytes_available": false,
+    "integrity": "Each complete decoded response was encoded as UTF-8 and stored byte for byte, preserving the returned BOM and LF/CRLF line endings. The hashes refer to those exact stored decoded bytes.",
+    "relative_directory": "compress-owned-ci-logs"
+  },
+  "limits": [
+    "This audit covers the owned validation PR and the listed workflow attempts. It is not upstream CI, acceptance, a human review, or a financial-benefit claim.",
+    "Full Maven suites include the explicitly reported operating-system-specific skips; all 89 relevant tests passed without skips in each of the 19 jobs.",
+    "The routine second Surefire invocation says it was already run for the same configuration; complete first-execution class and full-suite summaries are present in every Maven log."
+  ],
+  "reviewer_actions": {
+    "read_only_external_access": true,
+    "reruns_requested": false,
+    "settings_changed": false,
+    "comments_or_messages_posted_upstream": false,
+    "source_or_test_edits": false,
+    "local_tests_or_builds_executed": false,
+    "human_approval_claimed": false
+  }
+}

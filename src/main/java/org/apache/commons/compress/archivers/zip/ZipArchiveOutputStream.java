@@ -911,8 +911,12 @@ public class ZipArchiveOutputStream extends ArchiveOutputStream<ZipArchiveEntry>
      * </p>
      */
     void destroy() throws IOException {
-        if (out != null) {
-            super.close();
+        try {
+            streamCompressor.close();
+        } finally {
+            if (out != null) {
+                super.close();
+            }
         }
     }
 
